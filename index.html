@@ -23,7 +23,7 @@
       var startx = 20;
       var color=["#FFFFFF","#FF3399","#0099FF","#99FF33"];
       var cell_select = [
-                          [[0,1,2,3,4]]
+                          [[]]
                          ,[[0],[1]]
                          ,[[0,1], [2]]
                          ,[[0,2], [1,2], [3]]
@@ -35,6 +35,7 @@
                          ,[[0,3,4], [1,3,4], [0,1,2,4]]
                          ,[[0,1,3,4], [2,3,4]]
                          ,[[0,2,3,4], [1,2,3,4]]
+                         ,[[0,1,2,3,4]]
                         ];
       canv.globalAlpha = 0.2;
       canv.globalCompositeOperation = "source-over";
@@ -50,7 +51,7 @@
                      ,{ x1:startx        , y1:startx        , s:2}
                      ,{ x1:startx        , y1:startx+stepx*2, s:3}
                      ,{ x1:startx+stepx*3, y1:startx        , s:5}];
-        var hourcell = cell_select[($scope.value.getHours()%12) ];
+        var hourcell = cell_select[$scope.value.getHours()-($scope.value.getHours()>12)?12:0 ];
         var mincell  = cell_select[Math.floor($scope.value.getMinutes()/5)];
         var hourcell = hourcell[$scope.value.getDay() % hourcell.length];
         var mincell = mincell[($scope.value.getDay()+1) % mincell.length];
