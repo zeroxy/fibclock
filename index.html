@@ -51,7 +51,7 @@
                      ,{ x1:startx        , y1:startx        , s:2}
                      ,{ x1:startx        , y1:startx+stepx*2, s:3}
                      ,{ x1:startx+stepx*3, y1:startx        , s:5}];
-        var hourcell = cell_select[$scope.value.getHours()-($scope.value.getHours()>12)?12:0 ];
+        var hourcell = cell_select[$scope.value.getHours()-(($scope.value.getHours()>12)?12:0) ];
         var mincell  = cell_select[Math.floor($scope.value.getMinutes()/5)];
         var hourcell = hourcell[$scope.value.getDay() % hourcell.length];
         var mincell = mincell[($scope.value.getDay()+1) % mincell.length];
